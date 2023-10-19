@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-java@v3
         with: 
           java-version: "17"
-          distribution: "Corretto"
+          distribution: "corretto"
       # gradlew에 실행 권한 부여 (+x)
       - name: Grant permission for gradlew
         run: chmod +x ./gradlew
