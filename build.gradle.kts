@@ -18,6 +18,7 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.mariadb.jdbc:mariadb-java-client:3.2.0")
 }
 
 tasks.withType<Test> {
