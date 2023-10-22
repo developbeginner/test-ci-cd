@@ -34,7 +34,7 @@ jobs:
         run: ./gradlew build
 
       - name: Compress File
-        run: zip -qq -r ./$GITHUB_SHA.zip
+        run: zip -qq -r ./$GITHUB_SHA.zip .
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
