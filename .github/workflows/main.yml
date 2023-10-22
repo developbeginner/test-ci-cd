@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: "main"
 env:
-  AWS_REGION: "ap-northeast-2"
+  AWS_REGION: "ap-southeast-2b"
   PROJECT_NAME: "test_ci_cd"
   BUCKET_NAME: "developbeginner-s3-bucket"
   CODE_DEPLOY_APP_NAME: "cicdapp"
