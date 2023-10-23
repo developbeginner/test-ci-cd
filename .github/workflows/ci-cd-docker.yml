@@ -66,3 +66,4 @@ jobs:
       # delete old image
       - name: delete old image
         run: sudo docker system prune -f
+      # its dummy
