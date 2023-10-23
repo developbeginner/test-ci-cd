@@ -1,31 +1,29 @@
-# workflow 이름
+# workflow name
 name: CI
-
-# workflow 실행 트리거
+# workflow running trigger
 on:
   push:
-    branches: [ "main" ]
+    branches: "main"
   pull_request:
-    branches: [ "main" ]
-
-# workflow 실행 작업
+    branches: "main"
+# workflow jobs
 jobs:
   build:
-    # 실행 환경
+    # set runtime environment
     runs-on: ubuntu-latest
-    # 작업 순서
     steps:
-      # 작업 활용에 필요한 리소스를 $GITHUB_WORKSPACE에서 체크아웃
-      - uses: actions/checkout@v3
-      # JDK 설정
-      - name: Setup JDK
+      # checkout resources from $GITHUB_WORKSPACE
+      - name: checkout resources
+        uses: actions/checkout@v3
+      # setup java development kit 17
+      - name: setup jdk 17
         uses: actions/setup-java@v3
         with: 
           java-version: "17"
           distribution: "corretto"
-      # gradlew에 실행 권한 부여 (+x)
-      - name: Grant permission for gradlew
+      # grant permission for gradlew
+      - name: grant permission for gradlew
         run: chmod +x ./gradlew
-      # gradle 빌드
-      - name: Build gradle
+      # build gradle
+      - name: build gradle
         run: ./gradlew build
