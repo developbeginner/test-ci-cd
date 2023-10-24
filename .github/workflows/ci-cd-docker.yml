@@ -20,10 +20,8 @@ jobs:
       # create application-prod.properties
       - name: create application-prod.properties
         run: |
-          cd ./src/main/resources
-          touch ./application-prod-properties
-          echo "${{ secrets.APPLICATION_PROD_YML }}" | base64 --decode > ./application-prod.yml
-          cat ./application-prod.properties
+          echo "${{ secrets.APPLICATION_PROD_YML }}" | base64 --decode > ./src/main/resources/application-prod.yml
+          cat ./src/main/resources/application-prod.yml
           
 
       # setup java development kit 17
