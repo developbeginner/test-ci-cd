@@ -64,11 +64,15 @@ jobs:
 
       # stop old container
       - name: stop old container
-        run: sudo docker stop $(sudo docker ps -q) 2>/dev/null || true
+        run: sudo docker stop ${{ env.PROJECT_NAME }}
+
+      # remove old container
+      - name: remove old container
+        run: sudo docker rm ${{ env.PROJECT_NAME }}
 
       # run new container
       - name: run new container
-        run: sudo docker run --name ${{ env.PROJECT_NAME }} --rm -d -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/${{ env.PROJECT_NAME }}
+        run: sudo docker run --name ${{ env.PROJECT_NAME }} -d -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/${{ env.PROJECT_NAME }}
 
       # delete old image
       - name: delete old image
