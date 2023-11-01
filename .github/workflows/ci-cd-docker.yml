@@ -20,7 +20,7 @@ jobs:
       # create application-prod.properties
       - name: create application-prod.properties
         run: |
-          echo "${{ secrets.APPLICATION_PROD_YML }}" | base64 --decode > ./src/main/resources/application-prod.yml
+          echo "${{ secrets.APPLICATION_PROD_YML }}" | base64 --decode >> ./src/main/resources/application-prod.yml
           cat ./src/main/resources/application-prod.yml
           
 
