@@ -64,11 +64,11 @@ jobs:
 
       # stop old container
       - name: stop old container
-        run: sudo docker stop ${{ env.PROJECT_NAME }}
+        run: sudo docker stop ${{ env.PROJECT_NAME }} || true
 
       # remove old container
       - name: remove old container
-        run: sudo docker rm ${{ env.PROJECT_NAME }}
+        run: sudo docker rm ${{ env.PROJECT_NAME }} || true
 
       # run new container
       - name: run new container
